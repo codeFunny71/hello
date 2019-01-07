@@ -10,10 +10,15 @@ require_once('vendor/autoload.php');
 //create an instance of the Base class
 $f3 = Base::instance();
 
+//Turn on fat free error reporting
+$f3->set('DEBUG', 3);
+
 //Define route
 $f3->route('GET /',
     function() {
-        echo '<h1>Hello, world!</h1>>';
+        //echo '<h1>Hello, world!</h1>';
+        $view  new View;
+        echo $view->render('views/home-page.html');
     }
 );
 
